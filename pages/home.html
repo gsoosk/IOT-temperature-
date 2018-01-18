@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	<script src="../public/src/jquery.js">
+		$(document).ready(function() {
+   alert('Hello')
+   setInterval(function(){
+      $('#time').text(Date().toString())
+   }, 1000)
+})
+	</script>
+	<meta charset="utf-8">
+	<style type="text/css">
+
+		html {
+		  background-color: DarkSeaGreen;
+		}
+
+		body {
+		  font-family: "Poppins", sans-serif;
+		  height: 100vh;
+		}
+
+		a {
+		  color: #92badd;
+		  display:inline-block;
+		  text-decoration: none;
+		  font-weight: 400;
+		}
+
+		h2 {
+		  text-align: center;
+		  font-size: 16px;
+		  font-weight: 600;
+		  text-transform: uppercase;
+		  display:inline-block;
+		  margin: 40px 8px 10px 8px; 
+		  color: #6d6d6d;
+		}
+		.wrapper {
+		  display: flex;
+		  align-items: center;
+		  flex-direction: column; 
+		  justify-content: center;
+		  width: 100%;
+		  min-height: 100%;
+		  padding: 20px;
+		}
+
+		.formContent {
+		  background: #fff;
+		  padding: 30px;
+		  width: 90%;
+		 	align-items: center;
+		  max-width: 450px;
+		  padding: 0px;
+		  text-align: center;
+		  border-radius: 10px;
+		  align: center;
+		}
+		.head {
+			position: absolute;
+			right: center;
+			top: 0px;
+
+
+		}
+
+		input[type=button], input[type=submit], input[type=reset] , button {
+		  background-color: Teal;
+		  border: none;
+		  color: white;
+		  padding: 15px 80px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  text-transform: uppercase;
+		  font-size: 13px;
+		  border-radius: 5px;
+		  margin: 5px 20px 40px 20px;
+		 
+		}
+
+		input[type=text], textarea {
+		  border-radius: 5px;
+		  background-color: #f6f6f6;
+		  border: none;
+		  color: #0d0d0d;
+		  padding: 15px 32px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 16px;
+		  margin: 5px;
+		  width: 85%;
+		  border: 2px solid #ffff;
+		 
+		}
+		* {
+		  box-sizing: border-box;
+		}
+		#topic{
+       color: lightblue;
+       background-image: url('images/header.jpg');
+       border-radius: 10px;
+       margin: 10px;
+       height: 60px;
+       padding-top: 1px;
+       padding-bottom: 15px;
+       text-align: center;
+	    }
+	    #logout{
+	       position: absolute;
+	       right: 40px;
+	       top: 40px;
+	       cursor: pointer;
+	       color: lightblue;
+	    }
+	    .shape{
+	      margin:25px;
+	      text-align: center;
+	      border: 1px solid yellowgreen;
+	      border-radius: 10px;
+	      padding: 10px;
+	      background: #3cd61217;
+	    }
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="formContent head" ><h2>Temperature Monitor</h2></div>
+		<br>
+		<br>
+
+		<div class="formContent">
+		<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/400681/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+
+		</div>
+		<br>
+		<br>
+		
+      <br>
+
+		<div class="formContent" >
+		<form action="/save" method="post">
+			<br>
+			<textarea placeholder="Log" rows="6" cols="40" name="log" ></textarea>
+			<br>
+			 <input type="text" placeholder="Author" name="author">
+			<input type="submit" value="Enter" >
+				
+		</form>
+
+		</div>
+		<br>
+	<div class="timeDiv formContent">
+         <span id="time" style="color: #6d6d6d">getting time ...</span><br/>
+         <span id="status" style="color: #6d6d6d">Status: Online</span>
+      </div>
+	</div>
+
+	<a href="/logout"> <span id="logout"> Logout </span></a>
+	
+</body>
+</html>
+<!-- <script type="text/javascript">
+
+</script> -->
